@@ -14,7 +14,7 @@ Repainting, is like updating the canvas every single frame. In this way, the can
 
 ### `fillRect`
 
-If you are filling the background with a specific color, this is the recommended method to repaint the screen. 
+If you are filling the background with a specific color, this is the recommended method to repaint the screen. For example, using the color blue to generate part of the sky background.
 
 ### `clearRect`
 
