@@ -1,0 +1,99 @@
+<!doctype html>
+<head>
+	<title>FlappyJS</title>
+	<canvas></canvas>
+	<script src="sprite.js"></script>
+
+	<style>
+	canvas {
+		border: 2px solid black;
+	}
+	</style>
+</head>
+<body>
+<script>
+
+var 
+canvas = document.querySelector('canvas'),
+ctx = canvas.getContext('2d'),
+width,
+height, 
+fgpos = 0,
+
+
+frames = 0,
+score = 0,
+best = 0,
+
+currentstate, 
+states = {
+	Splash: 0, 
+	Game: 1, 
+	Score:2
+},
+
+bird = {
+	x: 80,
+	y: 100,
+	frame: 0,
+	//aniamtion sequence
+	animation: [0, 1, 2, 1],
+
+	update: function(){
+	 	var n = currentstate === states.Splash ? 10 : 5;
+	 	this.frame += frames % n === 0 ? 1 : 0;
+	 	this.frame %= this.animation.length;
+	},
+
+	draw: function(ctx){
+		// ctx.save();
+
+		var n = this.animation[this.frame];
+		s_bird[n].draw(ctx, this.x, this.y);
+		this.y++;
+
+		// ctx.restore();
+	}
+}
+
+
+function main(){
+	var img = new Image();
+	img.src = 'res/sheet.png';
+
+	img.addEventListener('load', function(){
+		initSprites(this);
+		ctx.fillStyle = "#70C5CF"
+		ctx.fillRect(50, 50, 150, 150)
+		run();
+	})
+}
+
+function run(){
+	update();
+	render();
+	window.requestAnimationFrame(run);
+}
+
+function update(){
+	frames++;
+	bird.update();
+}
+
+function render(){
+	//option 2 using fillRect for repaint
+	ctx.fillRect(0, 0, canvas.width, canvas.height)
+	bird.draw(ctx);
+}
+
+canvas.height = 450
+canvas.width = 400;
+
+main();
+
+
+</script>
+</body>
+</html>
+
+
