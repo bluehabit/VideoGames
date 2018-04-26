@@ -4,6 +4,10 @@ When we animate video games using canvas, we are often using a built in method `
 
 ## Why Repainting is Important
 
+If we do not repaint the canvas every frame, then the canvas will never refresh. As a result it will create this ghosting like effect where the image itself will trail many times across the canvas. 
+
+Repainting, is like updating the canvas every single frame. In this way, the canvas will only display the newest most relevant information and will not contain old information like the previous position of the sprite (ghosting) that occurs when no repaint is set. 
+
 ![f](https://imgur.com/EJ92S0q.gif)
 
 ### Repainting Methods
