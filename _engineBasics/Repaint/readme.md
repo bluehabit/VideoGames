@@ -14,11 +14,12 @@ Repainting, is like updating the canvas every single frame. In this way, the can
 
 ### `fillRect`
 
-If you are filling the background with a specific color, this is the recommended method to repaint the screen. For example if we have this example using flappy bird where we are using a blue background, if we attempt to use `clearRect` it will clear the blue background (`#70c5cf`) we set with `fillRect`. As shown below.
-
-
-
+If you are filling the background with a specific color, this is the recommended method to repaint the screen. 
 
 ### `clearRect`
 
-If you are not filling the background of the canvas with a particular color then this option is fine to use. 
+### Potential Issues using `clearRect`
+
+If you are not filling the background of the canvas with a particular color then this option is fine to use. For example if we have this example using flappy bird where we are using a blue background, if we attempt to use `clearRect` it will clear the blue background (`#70c5cf`) we set with `fillRect`. As shown below.
+
+![f](https://imgur.com/AzChEsO.png)
