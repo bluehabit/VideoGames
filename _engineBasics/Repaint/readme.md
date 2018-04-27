@@ -23,3 +23,18 @@ If you are filling the background with a specific color, this is the recommended
 If you are not filling the background of the canvas with a particular color then this option is fine to use. For example if we have this example using flappy bird where we are using a blue background, if we attempt to use `clearRect` it will clear the blue background (`#70c5cf`) we set with `fillRect`. As shown below.
 
 ![f](https://imgur.com/AzChEsO.png)
+
+
+### Main Rendering Engine
+
+The basic template for rendering our game looks like this. We have a main function `run`, and inside we have some helper functions that we also run. `update` all it does is from one frame to the next update the information about where an object is on the screen. For example `bird.x` coordinate.
+
+`render` takes the updated infromation from the `update` function and then paints it to the screen. 
+
+```
+function run(){
+	update();
+	render();
+	window.requestAnimationFrame(run);
+}
+```
